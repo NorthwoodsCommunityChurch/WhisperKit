@@ -204,10 +204,10 @@ public extension AudioProcessing {
 open class AudioProcessor: NSObject, AudioProcessing {
     private var lastInputDevice: DeviceID?
     public var audioEngine: AVAudioEngine?
-    public var audioSamples: ContiguousArray<Float> = []
-    public var audioEnergy: [(rel: Float, avg: Float, max: Float, min: Float)] = []
+    open var audioSamples: ContiguousArray<Float> = []
+    open var audioEnergy: [(rel: Float, avg: Float, max: Float, min: Float)] = []
     public var relativeEnergyWindow: Int = 20
-    public var relativeEnergy: [Float] {
+    open var relativeEnergy: [Float] {
         return self.audioEnergy.map { $0.rel }
     }
 
